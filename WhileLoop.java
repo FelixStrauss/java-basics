@@ -20,7 +20,7 @@ public class WhileLoop{
         while (limit!=number) {
            
             System.out.println(number);
-            number++;
+            number++;//zeigt an das es zählen soll
             
 
         }
