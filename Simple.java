@@ -26,3 +26,7 @@ System.out.println("The number" + numberInput +
     
     
 }
+
+
+
+Alternativ geht auch int numberInput=13;
