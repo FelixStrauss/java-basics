@@ -1,0 +1,38 @@
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Collection {
+    public static void main(String[] args) {
+        // Create a new ArrayList of whole numbers
+        List<Integer> wholeNumbers = new ArrayList<>();
+        // Add some whole numbers to the list
+        wholeNumbers.add(7);
+        wholeNumbers.add(22);
+        wholeNumbers.add(5);
+        wholeNumbers.add(9);
+        wholeNumbers.add(3);
+        wholeNumbers.add(12);
+
+        System.out.println("Maximum value: " + findMaxValue(wholeNumbers));
+        printEvenNumbers(wholeNumbers);
+    }
+
+    public static int findMaxValue(List<Integer> list) {
+        int maxValue = Integer.MIN_VALUE;
+        for (Integer number : list) {
+            if (number > maxValue) {
+                maxValue = number;
+            }
+        }
+        return maxValue;
+    }
+
+    public static void printEvenNumbers(List<Integer> list) {
+        for (Integer number : list) {
+            if (number % 2 == 0) {
+                System.out.println(number);
+            }
+        }
+    }
+}
