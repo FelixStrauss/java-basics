@@ -1,0 +1,44 @@
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Collections2 {
+    public static void main(String[] args) {
+        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> list2 = Arrays.asList(4, 5, 6, 7, 8, 9);
+
+        List<Integer> union = union(list1, list2);
+        System.out.println("Vereinigung: " + union);
+
+        List<Integer> intersection = intersection(list1, list2);
+        System.out.println("Intersection: " + intersection);
+
+        List<Integer> symmetric = symmetricDifference(list1, list2);
+        System.out.println("Symmetric Difference: " + symmetric);
+
+
+    }
+
+    public static List<Integer> union(List<Integer> list1, List<Integer> list2) {
+        List<Integer> union = new ArrayList<>(list1);
+        union.addAll(list2);
+
+        Stream<Integer> distinct = union.stream().distinct();
+        return distinct.collect(Collectors.toList());
+    }
+        public static List<Integer> intersection(List<Integer> list1, List<Integer> list2) {
+            return list1.stream()
+            .filter(list2::contains)
+            .collect(Collectors.toList());
+            }
+            public static List<Integer> symmetricDifference(List<Integer> list1, List<Integer> list2) {
+                List<Integer> result = new ArrayList<>(list1);
+                result.addAll(list2);
+                result.removeAll(intersection(list1, list2));
+                return result;
+                }
+    }
+
