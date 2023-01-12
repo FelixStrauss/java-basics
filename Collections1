@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+
+
+public class Collection1 {
+
+    public static void main(String[] args) {
+
+        ArrayList<Integer> wholeNumbers = new ArrayList<>();
+
+        wholeNumbers.add(5);
+        wholeNumbers.add(2);
+        wholeNumbers.add(17);
+        wholeNumbers.add(10);
+        wholeNumbers.add(20);
+        wholeNumbers.add(30);
+        wholeNumbers.add(50);
+
+        int max = maximum(wholeNumbers);
+        System.out.println("Maximum Element in ArrayList = " + max);
+        gerade(wholeNumbers);
+         
+
+    }
+
+    public static int maximum(ArrayList<Integer> zahl) {
+
+        int maximum = zahl.get(0);
+        for (int i = 1; i < zahl.size(); i++) {
+            if (maximum < zahl.get(i))
+                maximum = zahl.get(i);
+
+        }
+        return maximum;
+
+    }
+
+    public static void gerade(ArrayList<Integer> numbers) {
+        // check if number is even
+       
+        for (int i = 0; i < numbers.size(); i++) {
+            if (numbers.get(i) % 2 == 0){
+
+            System.out.println(numbers.get(i));}
+            
+        }
+        
+    }
+}
