@@ -1,0 +1,154 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Book {
+
+    private String title;
+    private String author;
+    private long ISBN;
+    private int quantity;
+
+    public Book(String title, String author, long ISBN, int quantity) {
+        this.title = title;
+        this.author = author;
+        this.ISBN = ISBN;
+        this.quantity = quantity;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public long getISBN() {
+        return ISBN;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setISBN(long ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public boolean borrowBook() {
+        if (quantity > 0) {
+            quantity--;
+            System.out.println("Book borrowed successfully!");
+            return true;
+        } else {
+            System.out.println("Sorry, the book is not available.");
+            return false;
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        Book book1 = new Book(
+                "Harry Potter and the Sorcerer's Stone",
+                "J.K. Rowling",
+                9788700631625L,
+                10);
+        Book book2 = new Book(
+                "The Lord of the Rings",
+                "J.R.R. Tolkien",
+                9780544003415L,
+                5);
+        Book book3 = new Book("The Hobbit", "J.R.R. Tolkien", 9780544003416L, 5);
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("********************Welcome to the Public Library!********************");
+        System.out.println("Enter the book number: ");
+        int bookNumber = scanner.nextInt();
+
+        List<Book> books = new ArrayList<Book>();
+books.add(book1);
+books.add(book2);
+books.add(book3);
+
+for (int i = 0; i < books.size(); i++) {
+    Book book = books.get(i);
+    System.out.println("Title: " + book.getTitle());
+    System.out.println("Author: " + book.getAuthor());
+    System.out.println("ISBN: " + book.getISBN());
+    System.out.println("Quantity: " + book.getQuantity());
+    System.out.println("Do you want to borrow this book? (y/n)");
+    String answer = scanner.next();
+    if (answer.equals("y")) {
+        book.borrowBook();
+        System.out.println("New Quantity: " + book.getQuantity());
+    } else {
+        System.out.println("Have a booktastic day!");
+    }
+}
+
+
+
+        /*  
+
+        if (bookNumber == 1) {
+            System.out.println("Title: " + book1.getTitle());
+            System.out.println("Author: " + book1.getAuthor());
+            System.out.println("ISBN: " + book1.getISBN());
+            System.out.println("Quantity: " + book1.getQuantity());
+            System.out.println("Do you want to borrow this book? (y/n)");
+            String answer = scanner.next();
+            if (answer.equals("y"))
+
+            {
+                book1.borrowBook();
+                System.out.println("New Quantity: " + book1.getQuantity());
+            } else {
+                System.out.println("Have a booktastic day!");
+
+            }
+        } else if (bookNumber == 2) {
+            System.out.println("Title: " + book2.getTitle());
+            System.out.println("Author: " + book2.getAuthor());
+            System.out.println("ISBN: " + book2.getISBN());
+            System.out.println("Quantity: " + book2.getQuantity());
+            System.out.println("Do you want to borrow this book? (y/n)");
+            String answer = scanner.next();
+            if (answer.equals("y"))
+
+            {
+                book2.borrowBook();
+                System.out.println("New Quantity: " + book2.getQuantity());
+            } else {
+                System.out.println("Have a booktastic day!");
+
+            }
+        } else if (bookNumber == 3) {
+            System.out.println("Title: " + book3.getTitle());
+            System.out.println("Author: " + book3.getAuthor());
+            System.out.println("ISBN: " + book3.getISBN());
+            System.out.println("Quantity: " + book3.getQuantity());
+            System.out.println("Do you want to borrow this book? (y/n)");
+            String answer = scanner.next();
+            if (answer.equals("y"))
+
+            {
+                book3.borrowBook();
+                System.out.println("New Quantity: " + book3.getQuantity());
+            } else {
+                System.out.println("Have a booktastic day!");
+            }
+        }
+    }*/
+}}
